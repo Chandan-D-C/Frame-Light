@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frame &amp; Light — Contemporary Photography Art Gallery</title>
+<meta name="description" content="Explore photography as an art form through immersive visual stories, curated photographs and interactive photography experiences.">
+<meta property="og:title" content="Frame & Light — Contemporary Photography Art Gallery">
+<meta property="og:description" content="A digital gallery exploring the art of photography.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="#">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- ============ PRELOADER ============ -->
+<div id="preloader" role="status" aria-label="Loading">
+  <div class="pl-mark">FRAME &amp; LIGHT</div>
+  <div class="pl-sub">Curating Moments…</div>
+  <div class="pl-progress" id="pl-progress">00%</div>
+</div>
+
+<div id="custom-cursor" aria-hidden="true"><span class="cc-label">View</span></div>
+
+<!-- ============ NAV ============ -->
+<header id="site-nav">
+  <a href="#home" class="nav-mark">FRAME &amp; LIGHT</a>
+  <nav>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#explore">Explore</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-media">
+    <video
+      id="hero-video"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+      poster="assets/video/hero-camera-poster.jpg"
+      aria-label="Canon DSLR camera, exploded view"
+    >
+      <source src="assets/video/hero-camera.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-grain"></div>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <p class="eyebrow hero-eyebrow" id="hero-eyebrow">The Art of Seeing</p>
+    <h1 class="hl hero-heading" id="hero-heading">
+      <span class="line"><span class="tw-see" id="tw-see"></span></span>
+      <span class="line"><span class="tw-diff" id="tw-diff"></span><span class="tw-cursor" id="tw-cursor"></span></span>
+    </h1>
+    <p class="hero-desc" id="hero-desc">A visual exploration of light, space, people and the quiet stories hidden inside ordinary moments.</p>
+    <div class="hero-ctas" id="hero-ctas">
+      <a href="#gallery" class="btn primary">Enter the Gallery <span class="arrow">→</span></a>
+      <a href="#explore" class="btn ghost">Explore Photography</a>
+    </div>
+  </div>
+  <div class="scroll-cue" id="scroll-cue"><span class="dot"></span> Scroll to Explore</div>
+  <div class="hero-meta" id="hero-meta">
+    <span>FRAME 001</span>
+    <span>12°58'17"N 77°35'37"E</span>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="editorial">
+  <span class="section-number reveal-up">01</span>
+  <div>
+    <p class="eyebrow" style="margin-bottom:var(--sp-2);">The Art of Observation</p>
+    <h2 class="hl editorial-heading">
+      <span class="line"><span>PHOTOGRAPHY</span></span>
+      <span class="line"><span>IS A WAY OF</span></span>
+      <span class="line"><span>SEEING.</span></span>
+    </h2>
+    <p class="editorial-body reveal-up">A photograph freezes time, but it also preserves emotion. It transforms light, movement and ordinary moments into something we can return to long after the moment has disappeared.</p>
+    <div class="divider-line" style="margin-top:var(--sp-4);"></div>
+  </div>
+</section>
+
+<!-- ============ FEATURED WORK ============ -->
+<section class="featured" id="explore">
+  <div class="section-head">
+    <h2 class="hl section-title reveal-up">Selected Works</h2>
+    <p class="eyebrow">Scroll to browse</p>
+  </div>
+  <div class="featured-track" id="featured-track"></div>
+</section>
+
+<!-- ============ MASONRY GALLERY ============ -->
+<section class="gallery-section" id="gallery">
+  <div class="section-head">
+    <h2 class="hl section-title reveal-up">The Collection</h2>
+  </div>
+  <div class="filter-row" id="filter-row" role="tablist" aria-label="Filter gallery by category"></div>
+  <div class="masonry" id="masonry-grid"></div>
+</section>
+
+<!-- ============ STORIES ============ -->
+<section class="stories-section dark-section" id="stories">
+  <p class="eyebrow" style="margin-bottom:var(--sp-2);">Behind the Frame</p>
+  <h2 class="hl section-title reveal-up" style="margin-bottom:var(--sp-3);">Stories Worth Telling</h2>
+  <div id="stories-wrap"></div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="education-section" id="learn">
+  <span class="section-number reveal-up">02</span>
+  <h2 class="hl editorial-heading" style="margin-top:var(--sp-3);">
+    <span class="line"><span>UNDERSTANDING</span></span>
+    <span class="line"><span>THE FRAME.</span></span>
+  </h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal-up">
+      <h4>Exposure</h4>
+      <p>The amount of light reaching the sensor — governed by three settings working together.</p>
+      <ul><li>Aperture</li><li>Shutter Speed</li><li>ISO</li></ul>
+    </div>
+    <div class="edu-card reveal-up">
+      <h4>Aperture</h4>
+      <p>Controls depth of field and how much light enters the lens per moment.</p>
+      <ul><li>Wide = shallow blur</li><li>Narrow = more in focus</li><li>Affects light intake</li></ul>
+    </div>
+    <div class="edu-card reveal-up">
+      <h4>Shutter Speed</h4>
+      <p>How long the sensor is exposed — the difference between frozen and flowing motion.</p>
+      <ul><li>Fast freezes motion</li><li>Slow blurs movement</li><li>Longer = more light</li></ul>
+    </div>
+    <div class="edu-card reveal-up">
+      <h4>ISO</h4>
+      <p>Sensor sensitivity to light — the trade-off between brightness and grain.</p>
+      <ul><li>Low = clean, needs light</li><li>High = bright, more noise</li><li>Digital sensitivity control</li></ul>
+    </div>
+    <div class="edu-card reveal-up">
+      <h4>Composition</h4>
+      <p>How elements are arranged inside the frame to guide the eye.</p>
+      <ul><li>Rule of thirds</li><li>Leading lines</li><li>Negative space</li></ul>
+    </div>
+    <div class="edu-card reveal-up">
+      <h4>Light</h4>
+      <p>The single most important variable in any photograph.</p>
+      <ul><li>Golden &amp; blue hour</li><li>Hard vs. soft light</li><li>Back &amp; side light</li></ul>
+    </div>
+  </div>
+
+  <!-- exposure simulator -->
+  <div class="simulator">
+    <div class="sim-preview">
+      <img src="https://images.unsplash.com/photo-1765833218137-abffe38f9e1a?w=900&h=675&fit=crop&auto=format&q=75" alt="Exposure simulator preview" id="sim-img">
+      <div class="sim-dof" id="sim-dof"></div>
+      <div class="sim-noise" id="sim-noise"></div>
+      <div class="sim-readout" id="sim-readout">f/2.8 | 1/250 | ISO 100</div>
+    </div>
+    <div class="sim-controls">
+      <p class="eyebrow" style="color:var(--c-bronze);">Interactive Exposure Simulator</p>
+      <label for="sim-aperture">Aperture — <span class="sim-value" id="ap-val">f/2.8</span></label>
+      <input type="range" id="sim-aperture" min="0" max="3" value="1" step="1">
+      <label for="sim-shutter">Shutter — <span class="sim-value" id="sh-val">1/250</span></label>
+      <input type="range" id="sim-shutter" min="0" max="3" value="1" step="1">
+      <label for="sim-iso">ISO — <span class="sim-value" id="iso-val">100</span></label>
+      <input type="range" id="sim-iso" min="0" max="3" value="0" step="1">
+      <p class="sim-explain" id="sim-explain">Adjust the controls to see how each setting shapes the final image.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="before-after-section">
+  <div class="section-head">
+    <h2 class="hl section-title reveal-up">Raw to Final</h2>
+    <p class="eyebrow">Drag the divider</p>
+  </div>
+  <div class="ba-frame" id="ba-frame" tabindex="0" role="slider" aria-label="Before and after image comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+    <img src="https://images.unsplash.com/photo-1783685158043-c18472c7f16e?w=1200&h=800&fit=crop&auto=format&q=75&sat=-100" alt="Unedited raw photograph" class="ba-raw">
+    <img src="https://images.unsplash.com/photo-1783685158043-c18472c7f16e?w=1200&h=800&fit=crop&auto=format&q=75" alt="Final edited photograph" class="ba-after">
+    <span class="ba-label raw">Raw</span>
+    <span class="ba-label final">Final</span>
+    <div class="ba-divider"><div class="ba-handle">⇔</div></div>
+  </div>
+</section>
+
+<!-- ============ 3D CAMERA SECTION ============ -->
+<section class="camera-section dark-section">
+  <div class="camera-canvas-wrap">
+    <canvas id="camera-canvas" aria-hidden="true"></canvas>
+  </div>
+  <div class="camera-text">
+    <h2 class="hl">THE TOOL MATTERS.<br>BUT THE EYE<br>MATTERS MORE.</h2>
+    <p>A camera is simply a tool. Photography begins with how you observe the world.</p>
+    <a href="#learn" class="btn ghost">Explore the Process <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHY ============ -->
+<section class="philosophy dark-section">
+  <blockquote id="philosophy-quote"></blockquote>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about-section" id="about">
+  <div class="about-img">
+    <img src="https://images.unsplash.com/photo-1624896147970-e042ee274c42?w=900&h=1125&fit=crop&auto=format&q=75" alt="Silhouette of the photographer against a mountain sunset">
+  </div>
+  <div class="about-bio">
+    <span class="section-number reveal-up">03</span>
+    <h2 class="hl editorial-heading" style="margin:var(--sp-2) 0 var(--sp-3);">Behind the Camera</h2>
+    <p>I photograph the spaces between moments — the light that touches a building for only a few seconds, the reflection left behind after rain, the expression that disappears before anyone notices.</p>
+    <p>My work moves between architecture, street and portrait photography, always chasing the same thing: a frame that holds still long enough to be felt, not just seen.</p>
+    <div class="stat-row">
+      <div class="stat reveal-up"><div class="stat-num" data-count="8">0</div><div class="stat-label">Years exploring photography</div></div>
+      <div class="stat reveal-up"><div class="stat-num" data-count="120">0</div><div class="stat-label">Stories captured</div></div>
+      <div class="stat reveal-up"><div class="stat-num" data-count="18">0</div><div class="stat-label">Cities explored</div></div>
+      <div class="stat reveal-up"><div class="stat-num" data-count="6">0</div><div class="stat-label">Ongoing projects</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact-section dark-section" id="contact">
+  <h2 class="hl contact-heading">LET'S CREATE<br>SOMETHING<br>WORTH REMEMBERING.</h2>
+  <div class="contact-grid">
+    <form id="contact-form" novalidate>
+      <div class="field">
+        <input type="text" id="cf-name" name="name" required autocomplete="name">
+        <label for="cf-name">Name</label>
+        <div class="field-error" id="err-name"></div>
+      </div>
+      <div class="field">
+        <input type="email" id="cf-email" name="email" required autocomplete="email">
+        <label for="cf-email">Email</label>
+        <div class="field-error" id="err-email"></div>
+      </div>
+      <div class="field">
+        <input type="text" id="cf-subject" name="subject" required>
+        <label for="cf-subject">Subject</label>
+        <div class="field-error" id="err-subject"></div>
+      </div>
+      <div class="field">
+        <textarea id="cf-message" name="message" rows="4" required></textarea>
+        <label for="cf-message">Message</label>
+        <div class="field-error" id="err-message"></div>
+      </div>
+      <button type="submit" class="btn ghost">Send Message <span class="arrow">→</span></button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+    <div class="contact-note">
+      <p>For exhibitions, prints, collaborations or licensing enquiries, use the form or reach out directly. Replies typically take 2–3 days.</p>
+      <span class="coords">12°58'17"N 77°35'37"E — Bengaluru Studio</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="dark-section">
+  <div class="footer-top">
+    <div>
+      <div class="footer-mark">FRAME &amp; LIGHT</div>
+      <p class="footer-desc">A digital gallery exploring the art of photography.</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#explore">Explore</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 FRAME &amp; LIGHT</span>
+    <span>MADE WITH LIGHT &amp; CODE</span>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photograph viewer">
+  <button class="lb-close" id="lb-close">CLOSE ×</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous photograph">← PREV</button>
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Next photograph">NEXT →</button>
+  <div class="lb-inner">
+    <div class="lb-image-wrap"><img id="lb-img" src="" alt=""></div>
+    <div class="lb-info">
+      <p class="fc-cat" id="lb-cat"></p>
+      <h3 id="lb-title"></h3>
+      <p class="lb-loc" id="lb-loc"></p>
+      <p class="lb-desc" id="lb-desc"></p>
+      <dl class="lb-exif">
+        <div><dt>Camera</dt><dd id="lb-camera"></dd></div>
+        <div><dt>Lens</dt><dd id="lb-lens"></dd></div>
+        <div><dt>Aperture</dt><dd id="lb-aperture"></dd></div>
+        <div><dt>Shutter</dt><dd id="lb-shutter"></dd></div>
+        <div><dt>ISO</dt><dd id="lb-iso"></dd></div>
+        <div><dt>Coordinates</dt><dd id="lb-coords"></dd></div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/lightbox.js"></script>
+<script src="js/exposure.js"></script>
+<script src="js/before-after.js"></script>
+<script src="js/camera3d.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
