@@ -1,0 +1,19 @@
+/* ============================================================
+   FRAME & LIGHT — ANIMATION HELPERS
+   ============================================================ */
+
+.reveal-up{ opacity:0; transform:translateY(28px); }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .hero-media img, .hero-media video{ transform:none !important; }
+  #hero-canvas, #camera-canvas{ display:none !important; }
+}
+
+.reduced-motion .hero-media img, .reduced-motion .hero-media video{ transform:none !important; }
+.reduced-motion #hero-canvas, .reduced-motion #camera-canvas{ display:none !important; }
